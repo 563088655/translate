@@ -18,7 +18,7 @@ It runs **directly in the terminal**, displays translations in real time, and au
 
 ---
 ## ** How to Use**
-Using this script is **very simple**—ideal for students who need subtitles while attending online courses.  
+Using this script is **very simple**
 
 ### 1. Clone the Repository
 ```bash
