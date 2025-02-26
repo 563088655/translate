@@ -1,4 +1,4 @@
-# **Real-Time Speech Translation SaaS with Azure & OpenAI**  
+# **Real-Time Speech Translation Script with Azure & OpenAI**  
 
 Most commercial real-time speech translation solutions are **expensive and complex** (about 0.1 usd for 1 min), making them less accessible for students.  
 This project provides a **simple, lightweight, and cost-effective SaaS script**  
