@@ -17,16 +17,14 @@ audio_config = speechsdk.AudioConfig(use_default_microphone=True)
 # OpenAI api
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# ** write to your file **
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 log_file = f"subtitles_{timestamp}.txt"
 
-# ** STT **
 def recognize_speech():
     recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
     print("waiting for input...")
-    
-    result = recognizer.recognize_once()  # recognize once
+
+    result = recognizer.recognize_once()  
     
     if result.reason == speechsdk.ResultReason.RecognizedSpeech:
         print(f"recognized: {result.text}")
