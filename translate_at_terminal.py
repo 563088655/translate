@@ -4,17 +4,17 @@ import sys
 import time
 import datetime
 
-# ** API **
+# set your API
 OPENAI_API_KEY = "your-api-key"
 AZURE_SPEECH_KEY = "your-azure-speech-key"
 AZURE_REGION = "your-area"
 
-# ** Azure **
+# and set a language
 speech_config = speechsdk.SpeechConfig(subscription=AZURE_SPEECH_KEY, region=AZURE_REGION)
 speech_config.speech_recognition_language = "set a labguage"  
 audio_config = speechsdk.AudioConfig(use_default_microphone=True)
 
-# ** OpenAI **
+# OpenAI api
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # ** write to your file **
@@ -38,7 +38,7 @@ def recognize_speech():
         print("cancelled")
         return None
 
-# ** translate with openai **
+# and set the source_language and the target_language
 def translate_text(text, source_lang="source_language", target_lang="target_lanhguage"):
     if not text:
         return None  
@@ -64,7 +64,7 @@ def translate_text(text, source_lang="source_language", target_lang="target_lanh
         print(f"failed: {e}")
         return None
 
-# wirite to file
+# wirite to file, you will have a file with the source language and target language
 def write_to_file(original, translated):
     with open(log_file, "a", encoding="utf-8") as file:
         timestamp = datetime.datetime.now().strftime("%H:%M:%S")
@@ -76,7 +76,7 @@ def main_loop():
         if spoken_text:
             translated_text = translate_text(spoken_text)
             if translated_text:
-                print(f"\n📜 {spoken_text}\n🌍 {translated_text}\n")
+                print(f"\n {spoken_text}\n {translated_text}\n")
                 write_to_file(spoken_text, translated_text)
         time.sleep(2)  # you can change the time to loop
 
